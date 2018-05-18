@@ -22,7 +22,7 @@ public class SpmsDAOTest {
 	public void testlist() throws Exception{		
 		dao.list();
 	}
-	@Test
+	//@Test
 	public void testcreate() throws Exception{		
 		Date date = new Date();		
 		

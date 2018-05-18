@@ -12,15 +12,15 @@
 	padding: 0;
 }
 body{
-	padding-top: 180px;
-   
+	padding-top: 60px;
+     
 }  
 
 #listall{
 	width:1000px;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	height:300px;	
+	height:500px;	
 	  
 }    
   

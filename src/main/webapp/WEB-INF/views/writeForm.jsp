@@ -41,7 +41,7 @@
 		padding-right:10px;
 	}
 	#btn{
-		width:400px;
+		width:600px;
 		text-align: center;	  
 		  
 	}
@@ -55,7 +55,7 @@
 		min-width: 800px;		    
 	}
 	
-	
+	   
 	
 </style>
 </head>
@@ -63,10 +63,11 @@
 	<%
 		pageContext.include("header.jsp");
 	%>
+	<form method="post" action="writeFrom">
 		<div id="main">
 			<p>
 				<label>프로젝트 이름</label>
-				<input type="text" name="name">
+				<input type="text" name="spms_name" id="title">
 			</p>
 			<p>
 				<label>프로젝트 내용</label>  
@@ -80,7 +81,7 @@
 				<label>마감날짜</label>
 				<input name="endday" type="text" class="datepicker">
 			</p>
-			<p>
+			<p>  
 				<label>상태:</label>
 				<select name="state">
 					<option>종류</option>
@@ -90,11 +91,66 @@
 					<option>보류</option>
 				</select>
 			</p>
+			</div>
+			<div>
 			<p id="btn">
-				<input type="submit" value="저장" name="can">
-				<input type="submit" value="취소" name="can">
+				<button type="submit" id="savebtn">저장</button>
+				<a id="goListBtn">취소</a>
 			</p>
 		</div>
+		</form>
+		
+	    
+		  
+		<script>   
+		
+			
+			$("#goListBtn").click(function(){
+				location.href="${pageContext.request.contextPath}/";				
+			})
+		
+		   
+		
+			/* $("#addbtn").click(function(){
+				var nameVal = $("#title").val();
+				var contentVal = $("#content").val();
+				var startdayVal = $("#startday").val();
+				var enddayVal = $("#endday").val();
+				var stateVal = $("#state").val();
+				
+				
+				var sendData = {
+						spms_name : nameVal,						
+						content : contentVal,
+						start_day : startdayVal,
+						end_day : enddayVal,
+						state : stateVal						
+					};
+
+					//@RequestBody, JSON.stringify, headers:Content-Type
+					$.ajax({
+						type : "post",
+						url : "${pageContext.request.contextPath}/writeFrom",
+						data : JSON.stringify(sendData), // JSON.stringify() -> json string로 바꿔줌
+						dataType : "text", //xml,text,json
+						headers : {
+							"Content-Type" : "application/json"
+						},
+						success : function(result) {
+							console.log(result)
+							if (result == "success") {
+								alert("등록 되었습니다.");								
+								
+								
+							}
+						}
+					})
+				}) */
+			
+			
+		</script>
+		
+		
 	<%
 		pageContext.include("bottom.jsp");
 	%>

@@ -1,9 +1,10 @@
 package com.dgit.controller;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,7 @@ public class SpmsController {
 		logger.info("spmsList ....");
 		
 		List<SpmsVO> list = service.listSpms();
+		model.addAttribute("list",list);
 		
 		return "spmsList";
 	}
@@ -53,21 +55,31 @@ public class SpmsController {
 	
 	@RequestMapping(value="/writeForm", method=RequestMethod.GET)
 	public void createSpms(Model model) throws Exception{
-		logger.info("writeFrom get ....");		
+		logger.info("writeFrom get ..............");		
 		
 		
 	}
 	
 	@RequestMapping(value="/writeFrom", method=RequestMethod.POST)
-	public void createSpmsPost(Model model) throws Exception{
-		logger.info("writeFrom post....");
+	public String createSpmsPost(SpmsVO vo, Model model, String startday, String endday) throws Exception{
+		logger.info("writeFrom post...............");
+		logger.info("start_day : "+startday);
+		logger.info("end_day : "+endday);
 		
 		
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		
+		Date start = date.parse(startday);
+		Date end = date.parse(endday);
 		
+		vo.setStart_day(start);
+		vo.setEnd_day(end);
+		  
+		service.createSpms(vo);
+			
 		
+		return "redirect:/";		
 		
 	}
-	
 	
 }
