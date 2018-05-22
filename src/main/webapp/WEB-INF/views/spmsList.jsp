@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style>
 * {
 	margin: 0 auto;
@@ -61,7 +63,7 @@ a{
 	%>
 	<div id="listall">
 	<p id="lista">
-		<a href="writeForm">[새 프로젝트 등록]</a>
+		<a href="write">[새 프로젝트 등록]</a>
 	</p>
 	<div id="projectlist">
 			<table>
@@ -78,10 +80,10 @@ a{
 				</c:if>
 				<c:if test="${list.size() > 0 }">
 					<c:forEach var="item" items="${list }">
-						<tr>
-							<td><a href="read.do?no=${item.spms_no }">${item.spms_name }</a></td>
-							<td>${item.start_day }</td>
-							<td>${item.end_day }</td>
+						<tr>							
+							<td><a href="read?no=${item.spms_no }">${item.spms_name }</a></td>							
+							<td><fmt:formatDate value="${item.start_day }" pattern="yyyy-MM-dd" /></td>
+							<td><fmt:formatDate value="${item.end_day }" pattern="yyyy-MM-dd" /></td>
 							<td>${item.state }</td>
 						</tr>
 					</c:forEach>
@@ -90,6 +92,20 @@ a{
 
 	</div>
 	</div>
+	
+	<!--   
+	<script>
+		  
+		$(".read").on("click",function(){
+		
+			var no = $(this).parent().find("input[name='no']").val();
+			alert(no);
+			location.href = "${pageContext.request.contextPath}/read?spms_no="+no;
+			  
+			
+		})       
+	
+	</script> -->
 	<%
 		pageContext.include("bottom.jsp");
 	%>
