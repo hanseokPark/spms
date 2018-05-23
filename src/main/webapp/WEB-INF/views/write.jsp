@@ -26,7 +26,7 @@
     showMonthAfterYear: true,
     yearSuffix: '년'
 });  
-</script>
+</script>  
 <style>
 	form{
 		margin:0;
@@ -41,8 +41,9 @@
 		padding-right:10px;
 	}
 	#btn{
-		width:600px;
-		text-align: center;	  
+		width:700px;
+		margin: 0 auto;
+		margin-bottom:30px;
 		  
 	}
 	.error, .error2 {
@@ -55,15 +56,33 @@
 		min-width: 800px;		    
 	}
 	
-	   
 	
+	#btn #savebtn{
+		background:blue;
+		color: #fff;
+		width:48px;
+		height:27px;
+	}
+	#btn #goListBtn{
+	 	background:blue;
+		color: #fff;
+	 	
+	 	
+	 	border-width: 2px;
+	    border-style: outset;
+  		border-color: buttonface;
+  	 	border-image: initial;
+   	    align-items: flex-start;
+        padding: 1px 6px;
+	}
+	  
 </style>
 </head>
 <body>
 	<%
 		pageContext.include("header.jsp");
 	%>
-	<form method="post" action="writeFrom">
+	<form method="post" action="write">
 		<div id="main">
 			<p>
 				<label>프로젝트 이름</label>
@@ -99,8 +118,6 @@
 			</p>
 		</div>
 		</form>
-		
-	    
 		  
 		<script>   
 		
@@ -110,46 +127,7 @@
 			})
 		
 		   
-		
-			/* $("#addbtn").click(function(){
-				var nameVal = $("#title").val();
-				var contentVal = $("#content").val();
-				var startdayVal = $("#startday").val();
-				var enddayVal = $("#endday").val();
-				var stateVal = $("#state").val();
-				
-				
-				var sendData = {
-						spms_name : nameVal,						
-						content : contentVal,
-						start_day : startdayVal,
-						end_day : enddayVal,
-						state : stateVal						
-					};
-
-					//@RequestBody, JSON.stringify, headers:Content-Type
-					$.ajax({
-						type : "post",
-						url : "${pageContext.request.contextPath}/writeFrom",
-						data : JSON.stringify(sendData), // JSON.stringify() -> json string로 바꿔줌
-						dataType : "text", //xml,text,json
-						headers : {
-							"Content-Type" : "application/json"
-						},
-						success : function(result) {
-							console.log(result)
-							if (result == "success") {
-								alert("등록 되었습니다.");								
-								
-								
-							}
-						}
-					})
-				}) */
-			
-			
 		</script>
-		
 		
 	<%
 		pageContext.include("bottom.jsp");

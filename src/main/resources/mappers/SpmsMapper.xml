@@ -23,4 +23,18 @@
 	
 	
 	
+	<select id="selectNo" resultType="SpmsVO">
+		select * from spms where spms_no=#{spms_no}
+	</select>
+	
+	<update id="modify">
+		update spms set spms_name = #{spms_name} ,content = #{content} ,start_day = #{start_day} ,end_day= #{end_day}, state = #{state} where spms_no = #{spms_no};
+	</update>
+	
+	<delete id="delete">
+		delete from spms where spms_no = #{spms_no};
+	</delete>
+	
+	
+	
 </mapper>

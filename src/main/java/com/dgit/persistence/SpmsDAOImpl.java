@@ -28,5 +28,23 @@ public class SpmsDAOImpl implements SpmsDAO{
 		session.insert(namespace+".create",spmsVO);		
 	}
 
+	@Override
+	public SpmsVO selectNo(int spms_no) throws Exception {
+		// TODO Auto-generated method stub 		
+		return session.selectOne(namespace + ".selectNo", spms_no);
+	}
+
+	@Override
+	public void modify(SpmsVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		session.update(namespace + ".modify", vo);
+	}
+
+	@Override
+	public void delete(int spms_no) throws Exception {
+		// TODO Auto-generated method stub
+		session.delete(namespace + ".delete", spms_no);
+	}
+
 
 }

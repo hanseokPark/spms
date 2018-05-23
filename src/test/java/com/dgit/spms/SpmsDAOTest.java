@@ -27,7 +27,7 @@ public class SpmsDAOTest {
 		Date date = new Date();		
 		
 		SpmsVO vo = new SpmsVO();
-		vo.setSpms_name("테스트");
+		vo.setSpms_name("테스트 삭제");
 		vo.setContent("content test");
 		vo.setStart_day(date);
 		vo.setEnd_day(date);
@@ -36,6 +36,52 @@ public class SpmsDAOTest {
 		
 		dao.create(vo);
 	}
+	//@Test
+	public void testselectNo() throws Exception{
 		
+		dao.selectNo(1);
+	}
+	//@Test
+	public void testmodify() throws Exception{
+		Date date = new Date();		
+		
+		SpmsVO vo = new SpmsVO();
+		vo.setSpms_name("테스트");
+		vo.setContent("content test");
+		vo.setStart_day(date);
+		vo.setEnd_day(date);
+		vo.setState("보류");
+		vo.setSpms_no(1);
+		
+		dao.modify(vo);
+	}
+	//@Test
+	public void testdelete() throws Exception{	
+		dao.delete(3);
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
