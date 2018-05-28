@@ -12,7 +12,7 @@
 	padding: 0;
 }
 #projectlist {
-	padding-top: 50px;
+	padding-top: 50px; 
 	padding-bottom: 50px;
 	width:1000px;
 }

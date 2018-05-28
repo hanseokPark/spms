@@ -26,7 +26,7 @@
     showMonthAfterYear: true,
     yearSuffix: '년'
 });  
-</script>  
+</script>   
 <style>
 	form{
 		margin:0;
